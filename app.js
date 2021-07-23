@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const request = require("request");
-const { post } = require("request");
+
+
 
 
 const app = express();
@@ -70,7 +71,7 @@ app.post("/failure" , function(req,res){
 });
 
 });
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("server is running ");
 
 });
