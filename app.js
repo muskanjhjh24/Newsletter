@@ -27,8 +27,8 @@ app.post("/", function(req,res){
             {email_address: email,
             status:"subscribed",
             merge_fields : {
-                fname:firstname,
-                lname:lastname
+               FNAME:firstname,
+               LNAME:lastname
 
 
             }
@@ -52,6 +52,7 @@ app.post("/", function(req,res){
 
 request(Options, function(error,response,body){
     if(error){
+        console.log(error);
         res.sendFile(__dirname + "/failure.html");
     }else{
 
@@ -64,13 +65,15 @@ request(Options, function(error,response,body){
     }
 
 });
+});
 
-app.post("/failure" , function(req,res){
+
+app.get("/failure" , function(req,res){
     res.redirect("/");
 
 });
 
-});
+
 app.listen(process.env.PORT || 3000,function(){
     console.log("server is running ");
 
